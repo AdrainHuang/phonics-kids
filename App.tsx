@@ -5,6 +5,7 @@ import { GameMapObject, HistoryRecord, PhonicWord } from './types';
 import { Character } from './components/Character';
 import { MapObject } from './components/MapObject';
 import { Fireworks } from './components/Fireworks';
+import { SparkleEffect } from './components/SparkleEffect';
 
 const App: React.FC = () => {
   // State
@@ -16,6 +17,7 @@ const App: React.FC = () => {
   const [history, setHistory] = useState<HistoryRecord[]>([]);
   const [feedback, setFeedback] = useState<'none' | 'correct' | 'wrong'>('none');
   const [showResults, setShowResults] = useState(false);
+  const [characterPos, setCharacterPos] = useState<{x: number, y: number} | null>(null);
 
   // Refs for timers
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
@@ -99,6 +101,7 @@ const App: React.FC = () => {
     setHistory([]);
     setMapObjects([]);
     setFeedback('none');
+    setCharacterPos(null);
     generateLevel(); // Immediate first turn
   };
 
@@ -109,6 +112,7 @@ const App: React.FC = () => {
     if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
     window.speechSynthesis.cancel();
     setShowResults(true);
+    setCharacterPos(null);
   };
 
   // Game Loop
@@ -137,6 +141,9 @@ const App: React.FC = () => {
         clearInterval(gameLoopRef.current);
         gameLoopRef.current = null;
     }
+
+    // Move character to object
+    setCharacterPos({ x: obj.x, y: obj.y });
 
     // Visual Feedback
     const isCorrect = obj.isCorrect;
@@ -169,6 +176,7 @@ const App: React.FC = () => {
     feedbackTimeoutRef.current = setTimeout(() => {
       setFeedback('none');
       setMapObjects([]); 
+      setCharacterPos(null); // Reset character position to center
       
       if (isPlaying) {
           generateLevel(); // Instant next level
@@ -245,8 +253,18 @@ const App: React.FC = () => {
         <div className="absolute bottom-0 w-full h-1/3 bg-green-400 rounded-t-[50%] scale-125 translate-y-10 opacity-80"></div>
         <div className="absolute bottom-0 w-full h-1/4 bg-green-500 rounded-t-[30%] scale-150 translate-y-20 opacity-90"></div>
 
-        {/* Character (Center) */}
-        <Character score={score} currentPhoneme={isPlaying && currentPhonemeWord ? currentPhonemeWord.phoneme : null} />
+        {/* Character (Center or Moving) */}
+        <div 
+            className="absolute z-20 transition-all duration-500 cubic-bezier(0.25, 1, 0.5, 1)"
+            style={{
+                left: characterPos ? `${characterPos.x}%` : '50%',
+                top: characterPos ? `${characterPos.y}%` : '50%',
+                transform: 'translate(-50%, -50%)'
+            }}
+        >
+            <Character score={score} currentPhoneme={isPlaying && currentPhonemeWord ? currentPhonemeWord.phoneme : null} />
+            {feedback === 'correct' && <SparkleEffect />}
+        </div>
 
         {/* Floating Objects */}
         {mapObjects.map((obj) => (
