@@ -40,6 +40,77 @@ export const PHONICS_DATA: PhonicWord[] = [
   { word: "tree", phoneme: "/i:/", highlight: "ee", image: "🌳" },
   { word: "bee", phoneme: "/i:/", highlight: "ee", image: "🐝" },
   { word: "leaf", phoneme: "/i:/", highlight: "ea", image: "🍃" },
+
+  // Long I /aɪ/
+{ word: "kite", phoneme: "/aɪ/", highlight: "i_e", image: "🪁" },
+{ word: "bike", phoneme: "/aɪ/", highlight: "i_e", image: "🚲" },
+{ word: "light", phoneme: "/aɪ/", highlight: "igh", image: "💡" },
+{ word: "night", phoneme: "/aɪ/", highlight: "igh", image: "🌙" },
+{ word: "five", phoneme: "/aɪ/", highlight: "i_e", image: "5️⃣" },
+{ word: "fly", phoneme: "/aɪ/", highlight: "y", image: "🪰" },
+
+// Long O /oʊ/
+{ word: "home", phoneme: "/oʊ/", highlight: "o_e", image: "🏠" },
+{ word: "nose", phoneme: "/oʊ/", highlight: "o_e", image: "👃" },
+{ word: "boat", phoneme: "/oʊ/", highlight: "oa", image: "⛵" },
+{ word: "goat", phoneme: "/oʊ/", highlight: "oa", image: "🐐" },
+{ word: "snow", phoneme: "/oʊ/", highlight: "ow", image: "❄️" },
+{ word: "yellow", phoneme: "/oʊ/", highlight: "ow", image: "💛" },
+
+// Long U /juː/ or /uː/
+{ word: "cube", phoneme: "/juː/", highlight: "u_e", image: "🧊" },
+{ word: "mule", phoneme: "/juː/", highlight: "u_e", image: "🐴" },
+{ word: "blue", phoneme: "/uː/", highlight: "ue", image: "🔵" },
+{ word: "true", phoneme: "/uː/", highlight: "ue", image: "✔️" },
+{ word: "flu", phoneme: "/uː/", highlight: "u", image: "🤒" },
+{ word: "food", phoneme: "/uː/", highlight: "oo", image: "🍜" },
+
+// Short OO /ʊ/
+{ word: "book", phoneme: "/ʊ/", highlight: "oo", image: "📖" },
+{ word: "foot", phoneme: "/ʊ/", highlight: "oo", image: "🦶" },
+{ word: "good", phoneme: "/ʊ/", highlight: "oo", image: "👍" },
+
+// Long OO /uː/
+{ word: "moon", phoneme: "/uː/", highlight: "oo", image: "🌕" },
+{ word: "spoon", phoneme: "/uː/", highlight: "oo", image: "🥄" },
+{ word: "pool", phoneme: "/uː/", highlight: "oo", image: "🏊" },
+
+// AR /ɑːr/
+{ word: "car", phoneme: "/ɑːr/", highlight: "ar", image: "🚗" },
+{ word: "star", phoneme: "/ɑːr/", highlight: "ar", image: "⭐" },
+
+// OR /ɔːr/
+{ word: "fork", phoneme: "/ɔːr/", highlight: "or", image: "🍴" },
+{ word: "horse", phoneme: "/ɔːr/", highlight: "or", image: "🐴" },
+
+// ER /ɜːr/, IR /ɜːr/, UR /ɜːr/
+{ word: "her", phoneme: "/ɜːr/", highlight: "er", image: "👩" },
+{ word: "bird", phoneme: "/ɜːr/", highlight: "ir", image: "🐦" },
+{ word: "turn", phoneme: "/ɜːr/", highlight: "ur", image: "🔄" },
+
+// SH /ʃ/
+{ word: "ship", phoneme: "/ʃ/", highlight: "sh", image: "🚢" },
+{ word: "fish", phoneme: "/ʃ/", highlight: "sh", image: "🐟" },
+
+// CH /tʃ/
+{ word: "chick", phoneme: "/tʃ/", highlight: "ch", image: "🐤" },
+{ word: "chair", phoneme: "/tʃ/", highlight: "ch", image: "🪑" },
+
+// TH (voiceless) /θ/
+{ word: "thin", phoneme: "/θ/", highlight: "th", image: "🧊" },
+{ word: "bath", phoneme: "/θ/", highlight: "th", image: "🛁" },
+
+// TH (voiced) /ð/
+{ word: "this", phoneme: "/ð/", highlight: "th", image: "👉" },
+{ word: "mother", phoneme: "/ð/", highlight: "th", image: "👩‍👧" },
+
+// PH /f/
+{ word: "phone", phoneme: "/f/", highlight: "ph", image: "📱" },
+{ word: "elephant", phoneme: "/f/", highlight: "ph", image: "🐘" },
+
+// NG /ŋ/
+{ word: "sing", phoneme: "/ŋ/", highlight: "ng", image: "🎤" },
+{ word: "king", phoneme: "/ŋ/", highlight: "ng", image: "👑" },
 ];
 
 export const LEVEL_THRESHOLDS = 10; // Points per level
