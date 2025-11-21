@@ -39,31 +39,31 @@ const App: React.FC = () => {
     const target = PHONICS_DATA[targetIndex];
     setCurrentPhonemeWord(target);
 
-    // Speak the sound (phoneme) or the word? The prompt says "carries a phonetic symbol... makes a sound".
-    // Kids might not understand raw IPA sounds alone, so let's say "Find the sound... [Sound]" or just the sound.
-    // To be effective, we might say the phoneme sound. Since TTS struggles with pure IPA, we might approximate or just beep.
-    // BETTER: Speak the word's sound part? Or just say the phoneme like "Ah" for /ae/.
-    // Simplification: The character makes a "Sound". Let's try to speak the phoneme description or just a generic sound effect + the visual bubble.
-    // Actually, for Phonics, usually you hear the *sound*. Let's try to speak the phoneme.
-    // If TTS fails, we rely on the visual bubble.
-    
-    // Let's make it fun: The character says the phoneme.
-    // Since mapping IPA to TTS is hard, we will say "Find the sound for... [Word]" effectively, or just emit a sound.
-    // Let's try to speak the phoneme "Short A" or similar if we had mapped it, but here we will play a generic "Listen!" and show the symbol.
-    // Wait, requirement: "User matches pronunciation to word".
-    // Let's speak the *word* that represents the sound, or just the sound if possible.
-    // Hack: We will speak the word clearly. "Find: Cat".
-    
     speak(`Find... ${target.word}`);
 
     // 2. Generate Map Objects
     const newObjects: GameMapObject[] = [];
     
+    // Helper to ensure objects don't spawn too low and get cut off
+    // Y range: 15% (top padding) to 65% (bottom padding)
+    const getSafeY = () => 15 + Math.random() * 50;
+
+    // Define horizontal lanes to ensure separation and randomness
+    // We have 3 objects (1 correct + 2 distractors), so 3 lanes works well.
+    const lanes = [
+      { min: 5, max: 25 },
+      { min: 35, max: 60 },
+      { min: 70, max: 90 }
+    ];
+
+    // Shuffle lanes
+    const shuffledLanes = lanes.sort(() => Math.random() - 0.5);
+    
     // Add the correct object
     newObjects.push({
       id: Date.now() + '-correct',
-      x: 10 + Math.random() * 30, // Left side to avoid overlapping center too much
-      y: 10 + Math.random() * 80,
+      x: shuffledLanes[0].min + Math.random() * (shuffledLanes[0].max - shuffledLanes[0].min),
+      y: getSafeY(),
       type: ['tree', 'cloud', 'mountain', 'flower'][Math.floor(Math.random() * 4)] as any,
       wordData: target,
       isCorrect: true
@@ -77,10 +77,11 @@ const App: React.FC = () => {
             distractor = PHONICS_DATA[Math.floor(Math.random() * PHONICS_DATA.length)];
         } while (distractor.phoneme === target.phoneme); // Ensure different phoneme category
 
+        const lane = shuffledLanes[i + 1];
         newObjects.push({
             id: Date.now() + `-wrong-${i}`,
-            x: 60 + Math.random() * 30, // Right side
-            y: 10 + Math.random() * 80,
+            x: lane.min + Math.random() * (lane.max - lane.min),
+            y: getSafeY(),
             type: ['tree', 'cloud', 'mountain', 'flower'][Math.floor(Math.random() * 4)] as any,
             wordData: distractor,
             isCorrect: false
@@ -105,6 +106,7 @@ const App: React.FC = () => {
   const handleStop = () => {
     setIsPlaying(false);
     if (gameLoopRef.current) clearInterval(gameLoopRef.current);
+    if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
     window.speechSynthesis.cancel();
     setShowResults(true);
   };
@@ -112,10 +114,10 @@ const App: React.FC = () => {
   // Game Loop
   useEffect(() => {
     if (isPlaying) {
+      // Clear any existing loop first to be safe
+      if (gameLoopRef.current) clearInterval(gameLoopRef.current);
+
       gameLoopRef.current = setInterval(() => {
-        // Only generate new level if we haven't clicked yet? 
-        // Requirement: "Every 2 seconds it emits a sound... objects appear".
-        // It implies a constant stream. Let's clear old objects and show new ones to keep pace.
         generateLevel();
       }, intervalTime);
     }
@@ -127,7 +129,14 @@ const App: React.FC = () => {
 
   // Interaction
   const handleObjectClick = (obj: GameMapObject) => {
-    if (!isPlaying) return;
+    // Prevent interaction if not playing or if we are currently showing feedback
+    if (!isPlaying || feedback !== 'none') return;
+
+    // CRITICAL: Stop the game loop immediately so no new words spawn during feedback
+    if (gameLoopRef.current) {
+        clearInterval(gameLoopRef.current);
+        gameLoopRef.current = null;
+    }
 
     // Visual Feedback
     const isCorrect = obj.isCorrect;
@@ -155,18 +164,15 @@ const App: React.FC = () => {
       }]);
     }
 
-    // Clear feedback after short delay
+    // Clear feedback after short delay and restart loop
     if (feedbackTimeoutRef.current) clearTimeout(feedbackTimeoutRef.current);
     feedbackTimeoutRef.current = setTimeout(() => {
       setFeedback('none');
-      // Force next round immediately on click to keep flow? 
-      // Or wait for interval. Let's wait for interval to keep rhythm, 
-      // but remove objects so user doesn't spam click.
       setMapObjects([]); 
-      if(gameLoopRef.current) {
-          clearInterval(gameLoopRef.current);
-          generateLevel(); // Instant next
-          // Restart loop
+      
+      if (isPlaying) {
+          generateLevel(); // Instant next level
+          // Restart the loop
           gameLoopRef.current = setInterval(generateLevel, intervalTime);
       }
     }, 1000);
