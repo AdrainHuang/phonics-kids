@@ -187,6 +187,162 @@ export const PHONICS_DATA: PhonicWord[] = [
   { word: "write", phoneme: "/r/", highlight: "wr", image: "✍️" },
   { word: "wreath", phoneme: "/r/", highlight: "wr", image: "🎄" },
   { word: "wrist", phoneme: "/r/", highlight: "wr", image: "💪" },
+
+  // A /æ/
+{ word: "ant", phoneme: "/æ/", highlight: "a", image: "🐜" },
+{ word: "apple", phoneme: "/æ/", highlight: "a", image: "🍎" },
+{ word: "ax", phoneme: "/æ/", highlight: "a", image: "🪓" },
+{ word: "alien", phoneme: "/æ/", highlight: "a", image: "👽" },
+
+// B /b/
+{ word: "bat", phoneme: "/b/", highlight: "b", image: "🦇" },
+{ word: "ball", phoneme: "/b/", highlight: "b", image: "🏀" },
+{ word: "bag", phoneme: "/b/", highlight: "b", image: "👜" },
+{ word: "bed", phoneme: "/b/", highlight: "b", image: "🛏️" },
+
+// C /k/
+{ word: "cat", phoneme: "/k/", highlight: "c", image: "🐱" },
+{ word: "car", phoneme: "/k/", highlight: "c", image: "🚗" },
+{ word: "cap", phoneme: "/k/", highlight: "c", image: "🧢" },
+{ word: "cow", phoneme: "/k/", highlight: "c", image: "🐄" },
+
+// D /d/
+{ word: "dog", phoneme: "/d/", highlight: "d", image: "🐶" },
+{ word: "door", phoneme: "/d/", highlight: "d", image: "🚪" },
+{ word: "duck", phoneme: "/d/", highlight: "d", image: "🦆" },
+{ word: "drum", phoneme: "/d/", highlight: "d", image: "🥁" },
+
+// E /ɛ/
+{ word: "egg", phoneme: "/ɛ/", highlight: "e", image: "🥚" },
+{ word: "elephant", phoneme: "/ɛ/", highlight: "e", image: "🐘" },
+{ word: "elf", phoneme: "/ɛ/", highlight: "e", image: "🧝" },
+{ word: "engine", phoneme: "/ɛ/", highlight: "e", image: "🚂" },
+
+// F /f/
+{ word: "fan", phoneme: "/f/", highlight: "f", image: "🌀" },
+{ word: "fish", phoneme: "/f/", highlight: "f", image: "🐟" },
+{ word: "frog", phoneme: "/f/", highlight: "f", image: "🐸" },
+{ word: "fox", phoneme: "/f/", highlight: "f", image: "🦊" },
+
+// G /g/
+{ word: "goat", phoneme: "/g/", highlight: "g", image: "🐐" },
+{ word: "gum", phoneme: "/g/", highlight: "g", image: "🍬" },
+{ word: "gift", phoneme: "/g/", highlight: "g", image: "🎁" },
+{ word: "gold", phoneme: "/g/", highlight: "g", image: "🥇" },
+
+// H /h/
+{ word: "hat", phoneme: "/h/", highlight: "h", image: "👒" },
+{ word: "hippo", phoneme: "/h/", highlight: "h", image: "🦛" },
+{ word: "hand", phoneme: "/h/", highlight: "h", image: "✋" },
+{ word: "house", phoneme: "/h/", highlight: "h", image: "🏠" },
+
+// I /ɪ/
+{ word: "igloo", phoneme: "/ɪ/", highlight: "i", image: "🏠" },
+{ word: "ink", phoneme: "/ɪ/", highlight: "i", image: "🖋️" },
+{ word: "insect", phoneme: "/ɪ/", highlight: "i", image: "🐞" },
+{ word: "ill", phoneme: "/ɪ/", highlight: "i", image: "🤒" },
+
+// J /dʒ/
+{ word: "jam", phoneme: "/dʒ/", highlight: "j", image: "🍓" },
+{ word: "jet", phoneme: "/dʒ/", highlight: "j", image: "✈️" },
+{ word: "jeep", phoneme: "/dʒ/", highlight: "j", image: "🚙" },
+{ word: "jelly", phoneme: "/dʒ/", highlight: "j", image: "🍮" },
+
+// K /k/
+{ word: "kite", phoneme: "/k/", highlight: "k", image: "🪁" },
+{ word: "key", phoneme: "/k/", highlight: "k", image: "🗝️" },
+{ word: "king", phoneme: "/k/", highlight: "k", image: "👑" },
+{ word: "koala", phoneme: "/k/", highlight: "k", image: "🐨" },
+
+// L /l/
+{ word: "lion", phoneme: "/l/", highlight: "l", image: "🦁" },
+{ word: "leaf", phoneme: "/l/", highlight: "l", image: "🍃" },
+{ word: "lamp", phoneme: "/l/", highlight: "l", image: "💡" },
+{ word: "lake", phoneme: "/l/", highlight: "l", image: "🏞️" },
+
+// M /m/
+{ word: "map", phoneme: "/m/", highlight: "m", image: "🗺️" },
+{ word: "man", phoneme: "/m/", highlight: "m", image: "👨" },
+{ word: "milk", phoneme: "/m/", highlight: "m", image: "🥛" },
+{ word: "moon", phoneme: "/m/", highlight: "m", image: "🌕" },
+
+// N /n/
+{ word: "nut", phoneme: "/n/", highlight: "n", image: "🥜" },
+{ word: "nose", phoneme: "/n/", highlight: "n", image: "👃" },
+{ word: "nail", phoneme: "/n/", highlight: "n", image: "🪛" },
+{ word: "net", phoneme: "/n/", highlight: "n", image: "🕸️" },
+
+// O /ɒ/
+{ word: "octopus", phoneme: "/ɒ/", highlight: "o", image: "🐙" },
+{ word: "ox", phoneme: "/ɒ/", highlight: "o", image: "🐂" },
+{ word: "on", phoneme: "/ɒ/", highlight: "o", image: "🔛" },
+{ word: "ostrich", phoneme: "/ɒ/", highlight: "o", image: "🐦" },
+
+// P /p/
+{ word: "pig", phoneme: "/p/", highlight: "p", image: "🐷" },
+{ word: "pen", phoneme: "/p/", highlight: "p", image: "🖊️" },
+{ word: "pan", phoneme: "/p/", highlight: "p", image: "🍳" },
+{ word: "pizza", phoneme: "/p/", highlight: "p", image: "🍕" },
+
+// Q /kw/
+{ word: "queen", phoneme: "/kw/", highlight: "qu", image: "👑" },
+{ word: "quick", phoneme: "/kw/", highlight: "qu", image: "⚡" },
+{ word: "quiz", phoneme: "/kw/", highlight: "qu", image: "❓" },
+{ word: "quiet", phoneme: "/kw/", highlight: "qu", image: "🤫" },
+
+// R /r/
+{ word: "rat", phoneme: "/r/", highlight: "r", image: "🐀" },
+{ word: "red", phoneme: "/r/", highlight: "r", image: "🔴" },
+{ word: "ring", phoneme: "/r/", highlight: "r", image: "💍" },
+{ word: "robot", phoneme: "/r/", highlight: "r", image: "🤖" },
+
+// S /s/
+{ word: "sun", phoneme: "/s/", highlight: "s", image: "☀️" },
+{ word: "sock", phoneme: "/s/", highlight: "s", image: "🧦" },
+{ word: "sand", phoneme: "/s/", highlight: "s", image: "🏖️" },
+{ word: "seal", phoneme: "/s/", highlight: "s", image: "🦭" },
+
+// T /t/
+{ word: "top", phoneme: "/t/", highlight: "t", image: "🔝" },
+{ word: "ten", phoneme: "/t/", highlight: "t", image: "🔟" },
+{ word: "tiger", phoneme: "/t/", highlight: "t", image: "🐯" },
+{ word: "tap", phoneme: "/t/", highlight: "t", image: "🚰" },
+
+// U /ʌ/
+{ word: "umbrella", phoneme: "/ʌ/", highlight: "u", image: "🌂" },
+{ word: "up", phoneme: "/ʌ/", highlight: "u", image: "⬆️" },
+{ word: "uncle", phoneme: "/ʌ/", highlight: "u", image: "👨" },
+{ word: "under", phoneme: "/ʌ/", highlight: "u", image: "⬇️" },
+
+// V /v/
+{ word: "van", phoneme: "/v/", highlight: "v", image: "🚐" },
+{ word: "vase", phoneme: "/v/", highlight: "v", image: "🏺" },
+{ word: "vet", phoneme: "/v/", highlight: "v", image: "👨‍⚕️" },
+{ word: "vine", phoneme: "/v/", highlight: "v", image: "🌿" },
+
+// W /w/
+{ word: "wig", phoneme: "/w/", highlight: "w", image: "💇" },
+{ word: "win", phoneme: "/w/", highlight: "w", image: "🏆" },
+{ word: "wet", phoneme: "/w/", highlight: "w", image: "💧" },
+{ word: "wolf", phoneme: "/w/", highlight: "w", image: "🐺" },
+
+// X /ks/
+{ word: "fox", phoneme: "/ks/", highlight: "x", image: "🦊" },
+{ word: "box", phoneme: "/ks/", highlight: "x", image: "📦" },
+{ word: "six", phoneme: "/ks/", highlight: "x", image: "6️⃣" },
+{ word: "mix", phoneme: "/ks/", highlight: "x", image: "🥣" },
+
+// Y /j/
+{ word: "yak", phoneme: "/j/", highlight: "y", image: "🐂" },
+{ word: "yarn", phoneme: "/j/", highlight: "y", image: "🧶" },
+{ word: "yes", phoneme: "/j/", highlight: "y", image: "👍" },
+{ word: "yell", phoneme: "/j/", highlight: "y", image: "📣" },
+
+// Z /z/
+{ word: "zip", phoneme: "/z/", highlight: "z", image: "🧵" },
+{ word: "zoo", phoneme: "/z/", highlight: "z", image: "🦁" },
+{ word: "zero", phoneme: "/z/", highlight: "z", image: "0️⃣" },
+{ word: "zebra", phoneme: "/z/", highlight: "z", image: "🦓" },
 ];
 
 export const LEVEL_THRESHOLDS = 10; // Points per level
